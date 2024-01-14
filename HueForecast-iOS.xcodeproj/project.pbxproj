@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		27B0127F2B53BF2100912F98 /* HueForecast_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B0127E2B53BF2100912F98 /* HueForecast_iOSTests.swift */; };
 		27B012892B53BF2100912F98 /* HueForecast_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B012882B53BF2100912F98 /* HueForecast_iOSUITests.swift */; };
 		27B0128B2B53BF2100912F98 /* HueForecast_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B0128A2B53BF2100912F98 /* HueForecast_iOSUITestsLaunchTests.swift */; };
+		27B012982B53C97E00912F98 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B012972B53C97E00912F98 /* WeatherService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		27B012842B53BF2100912F98 /* HueForecast-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HueForecast-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27B012882B53BF2100912F98 /* HueForecast_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HueForecast_iOSUITests.swift; sourceTree = "<group>"; };
 		27B0128A2B53BF2100912F98 /* HueForecast_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HueForecast_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		27B012972B53C97E00912F98 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				27B012692B53BF2000912F98 /* HueForecast_iOSApp.swift */,
 				27B0126B2B53BF2000912F98 /* ContentView.swift */,
 				27B0126D2B53BF2000912F98 /* Item.swift */,
+				27B012972B53C97E00912F98 /* WeatherService.swift */,
 				27B0126F2B53BF2100912F98 /* Assets.xcassets */,
 				27B012742B53BF2100912F98 /* HueForecast_iOS.entitlements */,
 				27B012752B53BF2100912F98 /* Info.plist */,
@@ -214,7 +217,7 @@
 				};
 			};
 			buildConfigurationList = 27B012612B53BF2000912F98 /* Build configuration list for PBXProject "HueForecast-iOS" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -264,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27B012982B53C97E00912F98 /* WeatherService.swift in Sources */,
 				27B0126C2B53BF2000912F98 /* ContentView.swift in Sources */,
 				27B0126E2B53BF2000912F98 /* Item.swift in Sources */,
 				27B0126A2B53BF2000912F98 /* HueForecast_iOSApp.swift in Sources */,

@@ -6,56 +6,68 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-
+    @State private var temperature: Double = 0
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        } detail: {
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+        ZStack {
+            backgroundForTemperature(temperature)
+                .edgesIgnoringSafeArea(.all)
+            VStack {
+                Text(emojiForTemperature(temperature))
+                    .font(.system(size: 50))
+                Slider(value: $temperature, in: -50...50, step: 1)
+                    .padding()
+                Text("\(temperature, specifier: "%.0f")°C")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
             }
         }
     }
-}
 
-#Preview {
-    ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
-}
+    private func backgroundForTemperature(_ temperature: Double) -> LinearGradient {
+        switch temperature {
+        case ..<0:
+            return LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .top, endPoint: .bottom)
+        case 0..<11:
+            return LinearGradient(gradient: Gradient(colors: [.blue, .green]), startPoint: .top, endPoint: .bottom)
+        case 11..<16:
+            return LinearGradient(gradient: Gradient(colors: [.green, .yellow]), startPoint: .top, endPoint: .bottom)
+        case 16..<26:
+            return LinearGradient(gradient: Gradient(colors: [.yellow, .orange]), startPoint: .top, endPoint: .bottom)
+        case 26..<31:
+            return LinearGradient(gradient: Gradient(colors: [.orange, .red]), startPoint: .top, endPoint: .bottom)
+        case 31..<41:
+            return LinearGradient(gradient: Gradient(colors: [.red, .purple]), startPoint: .top, endPoint: .bottom)
+        case 41...:
+            return LinearGradient(gradient: Gradient(colors: [.purple, .black]), startPoint: .top, endPoint: .bottom)
+        default:
+            return LinearGradient(gradient: Gradient(colors: [.gray]), startPoint: .top, endPoint: .bottom)
+        }
+    }
+
+    private func emojiForTemperature(_
+                                     temperature: Double) -> String {
+                                     switch temperature {
+                                     case ..<0:
+                                     return "🥶"
+                                     case 0..<11:
+                                     return "🧤"
+                                     case 11..<16:
+                                     return "🧥"
+                                     case 16..<26:
+                                     return "👕"
+                                     case 26..<31:
+                                     return "😎"
+                                     case 31..<41:
+                                     return "🥵"
+                                     case 41..<50:
+                                     return "🔥"
+                                     case 50...:
+                                     return "💀"
+                                     default:
+                                     return "❓"
+                                     }
+                                     }
+                                     }
