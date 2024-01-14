@@ -25,3 +25,8 @@ Les code reviews et contributions pour améliorer cette application sont grandem
 Si vous avez des questions ou des commentaires, n'hésitez pas à me contacter à l'adresse email suivante : hello@mikepixel.dev.
 
 Pour plus de mes projets, visitez mon [GitHub](https://github.com/mikepixeldev).
+
+---
+
+v0.1
+https://github.com/mikepixeldev/HueForecast-iOS/blob/Test-v0.1/Simulator%20Screenshot%20-%20iPhone%2015%20Pro%20-%202024-01-14%20at%2009.17.35.png
